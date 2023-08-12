@@ -97,8 +97,8 @@ const DisplayItem = ({ products, fetchProduct,loadShimmer}) => {
   }, [searchText, products]);
 
   return (
-  <div className='bg-[#333333] text-white w-full'>
-    <div className="flex flex-col items-center w-3/5 mx-auto sm:w-3/4 md:w-3/4">
+  <div className='bg-[#333333] text-white'>
+    <div className="flex flex-col items-center w-3/5 mx-auto sm:w-3/4 md:w-3/4 xs:w-3/4">
             <h1 className="text-2xl font-semibold mb-1">Inventory Items</h1>
             <hr className='w-full h-[2px] bg-slate-400 mb-4'></hr>
         <div className=" flex mx-auto w-full mb-4 bg-white rounded-md shadow-sm border border-slate-400 ">
@@ -112,29 +112,30 @@ const DisplayItem = ({ products, fetchProduct,loadShimmer}) => {
       </div>
       {
       (loadShimmer)?(<Shimmer/>):
-    ((filteredProducts?.length==0)?(<NoProductsFound />):(<table className="w-full border-collapse border border-gray-300 mb-10">
+    ((filteredProducts?.length==0)?(<NoProductsFound />):(
+      <table className=" w-full border-collapse border border-gray-300 mb-10 xs:w-2/5">
         <thead>
           <tr className="bg-[#36454F]">
-            <th className="py-2 px-4 border">Product Name</th>
-            <th className="py-2 px-4 border">Quantity</th>
-            <th className="py-2 px-4 border">Price</th>
-            <th className="py-2 px-4 border">Delete</th>
+            <th className="py-2 px-4 border xs:px-2">Product Name</th>
+            <th className="py-2 px-4 border xs:px-2">Quantity</th>
+            <th className="py-2 px-4 border xs:px-2">Price</th>
+            <th className="py-2 px-4 border xs:px-2">Delete</th>
           </tr>
         </thead>
         <tbody>
           {filteredProducts?.map((product) => (
             <tr key={product?.id} className="border">
-              <td className="py-2 px-4 font-semibold text-center">{product?.productName}</td>
-              <td className="py-2 px-4 border text-center">
+              <td className="py-2 px-4 font-semibold text-center xs:px-1">{product?.productName}</td>
+              <td className="py-2 px-4 border text-center xs:px-1">
               <div className='flex mx-auto w-fit'>
-                  <button className='border font-bold bg-[#1CB852]  text-white p-1 border-black  hover:shadow-md disabled:bg-[#AAD49C] rounded-sm' onClick={()=>buttonAction("decrease",product?.id,product?.productName,product?.quantity)} disabled={disableBtn||product.quantity==0}><RemoveIcon></RemoveIcon></button>
-                  <p className='py-2 w-14  font-bold text-base'>{product?.quantity}</p>
-                  <button className='border font-bold bg-[#1CB852]  text-white p-1 border-black  hover:shadow-md disabled:bg-[#AAD49C] rounded-sm' onClick={()=>buttonAction("increase",product?.id,product?.productName,product?.quantity)} disabled={disableBtn}><AddIcon></AddIcon></button>
+                  <button className='border font-bold bg-[#1CB852]  text-white p-1 border-black  hover:shadow-md disabled:bg-[#AAD49C] rounded-sm xs:p-0 xs:ml-1' onClick={()=>buttonAction("decrease",product?.id,product?.productName,product?.quantity)} disabled={disableBtn||product.quantity==0}><RemoveIcon></RemoveIcon></button>
+                  <p className='py-2 w-14 font-bold text-base xs:w-10'>{product?.quantity}</p>
+                  <button className='border font-bold bg-[#1CB852]  text-white p-1 border-black  hover:shadow-md disabled:bg-[#AAD49C] rounded-sm xs:p-0 xs:mr-1' onClick={()=>buttonAction("increase",product?.id,product?.productName,product?.quantity)} disabled={disableBtn}><AddIcon></AddIcon></button>
               </div>
               </td>
-              <td className="py-2 px-4 font-semibold text-center">{product?.price}</td>
-              <td className="py-2 px-4 border text-center">
-                <button className='bg-[#1CB852]  text-white font-bold px-4 py-2 rounded-lg transition duration-300 ease-in-out hover:shadow-md disabled:bg-[#AAD49C]' onClick={() => deleteProduct(product?.id)} disabled={disableBtn}> Delete </button>
+              <td className="py-2 px-4 font-semibold text-center xs:px-1">{product?.price}</td>
+              <td className="py-2 px-4 border text-center xs:px-1">
+                <button className='bg-[#1CB852]  text-white font-bold px-4 py-2 rounded-lg transition duration-300 ease-in-out hover:shadow-md disabled:bg-[#AAD49C] xs:p-2 xs:m-1' onClick={() => deleteProduct(product?.id)} disabled={disableBtn}> Delete </button>
               </td>
             </tr>
           ))}
