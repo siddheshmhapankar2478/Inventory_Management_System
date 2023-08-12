@@ -6,10 +6,15 @@ import { name,mail,linkedin,github } from '@/app/config';
 const Footer = () => {
   return (
     <div className="flex flex-wrap bg-[#36454F] text-white justify-center mt-auto">
-        <h1 className="p-4">This website is created by <span className='font-bold'>{name}</span></h1>
-        <a className="p-2 border rounded-full m-2 hover:text-[#F8781D] hover:border-[#F8781D]" target='_blank' href={`mailto:${mail}`}><MailOutlineIcon></MailOutlineIcon></a>
-        <a className="p-2 border rounded-full m-2 hover:text-[#F8781D] hover:border-[#F8781D]" target='_blank' href={linkedin}><LinkedInIcon></LinkedInIcon></a>
-        <a className="p-2 border rounded-full m-2 hover:text-[#F8781D] hover:border-[#F8781D]" target='_blank' href={github}><GitHubIcon></GitHubIcon></a>
+        <div className="flex xs:flex-col">
+          <h1 className="py-4 ">This website is created by  &nbsp;</h1> 
+          <h1 className='font-bold xs:block xs:text-center py-4'> {name}</h1>
+        </div>    
+      <div className="flex flex-wrap mt-auto justify-center">
+          <a className="p-2 border rounded-full m-2 hover:text-[#F8781D] hover:border-[#F8781D]" target='_blank' href={`mailto:${mail}`}><MailOutlineIcon></MailOutlineIcon></a>
+          <a className="p-2 border rounded-full m-2 hover:text-[#F8781D] hover:border-[#F8781D]" target='_blank' href={linkedin}><LinkedInIcon></LinkedInIcon></a>
+          <a className="p-2 border rounded-full m-2 hover:text-[#F8781D] hover:border-[#F8781D]" target='_blank' href={github}><GitHubIcon></GitHubIcon></a>
+      </div>
     </div>
   );
 };
