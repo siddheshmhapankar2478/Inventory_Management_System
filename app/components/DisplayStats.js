@@ -32,7 +32,7 @@ const DisplayStats = ({products}) => {
             <h1 className="text-2xl font-semibold mb-1 text-center">Inventory Stats</h1>
             <hr className='w-full h-[2px] bg-slate-400 mb-4'></hr>
           
-          <div className='flex w-full justify-between mx-auto sm:flex-col sm:w-full sm:items-center md:flex-col md:w-full md:items-center '>
+          <div className='flex w-full justify-between mx-auto sm:flex-col sm:w-full sm:items-center md:flex-col md:w-full md:items-center xs:flex-col xs:w-full xs:items-center'>
             <div className='flex  w-44 bg-[#B626FF] m-2 sm:my-2 md:my-2 '>
               <div className='flex items-center  p-1'>
               <ShoppingCartIcon fontSize="large" />
